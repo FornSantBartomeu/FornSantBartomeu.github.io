@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forn Sant Bartomeu · Panadería y Pastelería Artesana · Son Rapinya, Palma</title>
+<meta name="description" content="Forn Sant Bartomeu, panadería y pastelería artesana en Son Rapinya, Palma de Mallorca. Ensaimadas, cocas, cremadillos y pan recién horneado cada día desde hace décadas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF5EC;
+  --cream-2:#F4EADC;
+  --paper:#FFFDF9;
+  --ink:#3B2A1E;
+  --ink-soft:#7A6657;
+  --line:#E7D8C4;
+  --terracotta:#C8553D;
+  --terracotta-dark:#A8412C;
+  --honey:#E3A23B;
+  --olive:#7C8B5A;
+  --font-display:"Fraunces", serif;
+  --font-body:"Work Sans", system-ui, sans-serif;
+  --max:1140px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--terracotta-dark); text-decoration:none}
+img{max-width:100%; display:block}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 1.5rem}
+
+/* ===== Top bar ===== */
+.topbar{
+  position:sticky; top:0; z-index:100;
+  background:rgba(251,245,236,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:78px}
+.logo{display:flex; align-items:center; gap:.7rem; font-family:var(--font-display); font-weight:700; font-size:1.25rem; color:var(--ink)}
+.logo-mark{
+  width:42px; height:42px; border-radius:50%;
+  background:var(--terracotta);
+  color:#fff; display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-weight:700; font-size:1.1rem;
+  border:2px solid var(--honey);
+}
+.logo small{display:block; font-family:var(--font-body); font-weight:500; font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft)}
+nav.menu{display:flex; gap:1.8rem; align-items:center}
+nav.menu a{font-weight:600; font-size:.92rem; color:var(--ink); position:relative; padding:.3rem 0}
+nav.menu a:hover{color:var(--terracotta-dark)}
+.menu-toggle{display:none; background:none; border:1px solid var(--line); border-radius:8px; width:42px; height:42px; font-size:1.2rem; color:var(--ink); cursor:pointer}
+
+@media (max-width:860px){
+  nav.menu{
+    display:none; position:absolute; top:78px; left:0; right:0;
+    background:var(--paper); border-bottom:1px solid var(--line);
+    flex-direction:column; padding:1rem 1.5rem; gap:.9rem;
+  }
+  nav.menu.open{display:flex}
+  .menu-toggle{display:flex; align-items:center; justify-content:center}
+}
+
+/* ===== Hero ===== */
+.hero{position:relative; isolation:isolate}
+.hero-media{
+  height:88vh; min-height:560px; max-height:820px;
+  background-image:
+    linear-gradient(180deg, rgba(40,26,16,.15) 0%, rgba(35,22,13,.78) 100%),
+    url('https://images.unsplash.com/photo-1556909114-44e3e70034e2?auto=format&fit=crop&w=1800&q=80');
+  background-size:cover;
+  background-position:center 65%;
+}
+.hero-content{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:0 1.5rem 4.5rem;
+}
+.hero-inner{max-width:var(--max); margin:0 auto; width:100%; color:#fff}
+.hero-eyebrow{
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;
+  color:#FBE3C5; margin-bottom:1.1rem; font-weight:600;
+}
+.hero-eyebrow::before{content:"✺"; color:var(--honey); font-size:1rem}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:4.4rem; line-height:1.04; margin:0 0 1rem; font-weight:700;
+  text-shadow:0 2px 24px rgba(0,0,0,.25);
+}
+.hero h1 em{font-style:italic; color:var(--honey)}
+.hero-lead{font-size:1.18rem; max-width:540px; color:#F4E9DC; margin:0 0 1.8rem}
+.hero-cta{display:flex; gap:.9rem; flex-wrap:wrap}
+.btn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family:var(--font-body); font-weight:700; font-size:.95rem;
+  padding:.85rem 1.6rem; border-radius:999px; border:2px solid transparent;
+  transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn-primary{background:var(--terracotta); color:#fff}
+.btn-primary:hover{background:var(--terracotta-dark); transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(255,255,255,.55); color:#fff}
+.btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,.12); transform:translateY(-2px)}
+
+/* scalloped divider */
+.scallop{
+  position:absolute; left:0; right:0; bottom:-1px; height:34px;
+  background-image: radial-gradient(circle at 17px 0, transparent 17px, var(--cream) 18px);
+  background-size:34px 34px;
+  background-repeat:repeat-x;
+}
+
+/* ===== Strip stats ===== */
+.strip{
+  background:var(--ink);
+  color:var(--cream);
+}
+.strip .wrap{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  padding:1.6rem 1.5rem;
+}
+.strip .item{text-align:center; padding:.4rem 1rem; border-left:1px solid rgba(255,255,255,.12)}
+.strip .item:first-child{border-left:none}
+.strip .num{font-family:var(--font-display); font-size:1.6rem; font-weight:700; color:var(--honey)}
+.strip .label{font-size:.78rem; color:#D8C7B6; margin-top:.2rem}
+@media (max-width:760px){
+  .strip .wrap{grid-template-columns:repeat(2,1fr); gap:1rem 0}
+  .strip .item:nth-child(3){border-left:none}
+}
+
+/* ===== Sections ===== */
+section{padding:5.5rem 0}
+.section-head{max-width:640px; margin:0 auto 3rem; text-align:center}
+.tag{
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--terracotta-dark); font-weight:700; margin-bottom:.9rem;
+}
+.tag::before, .tag::after{content:""; width:22px; height:1px; background:var(--terracotta-dark)}
+.section-head h2{font-family:var(--font-display); font-size:2.4rem; margin:0 0 .8rem; font-weight:700}
+.section-head p{color:var(--ink-soft); font-size:1.05rem; margin:0}
+
+/* ===== Specialties grid ===== */
+.spec-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4rem}
+.spec-card{
+  background:var(--paper); border:1px solid var(--line); border-radius:18px;
+  overflow:hidden; transition:transform .2s ease, box-shadow .2s ease;
+}
+.spec-card:hover{transform:translateY(-5px); box-shadow:0 18px 36px -22px rgba(60,40,20,.45)}
+.spec-img{height:170px; background-size:cover; background-position:center}
+.spec-body{padding:1.1rem 1.2rem 1.3rem}
+.spec-body h3{font-family:var(--font-display); font-size:1.15rem; margin:0 0 .35rem}
+.spec-body p{font-size:.88rem; color:var(--ink-soft); margin:0}
+@media (max-width:980px){.spec-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.spec-grid{grid-template-columns:1fr}}
+
+/* ===== Story split ===== */
+.story{
+  display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center;
+}
+.story-media{position:relative}
+.story-media img{border-radius:20px; box-shadow:0 24px 50px -30px rgba(60,40,20,.5)}
+.story-badge{
+  position:absolute; bottom:-26px; left:-26px;
+  background:var(--terracotta); color:#fff; border-radius:50%;
+  width:108px; height:108px; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  font-family:var(--font-display); border:4px solid var(--cream);
+  box-shadow:0 10px 24px -10px rgba(60,40,20,.5);
+}
+.story-badge .n{font-size:1.5rem; font-weight:700; line-height:1}
+.story-badge .t{font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; margin-top:.2rem}
+.story-text h2{font-family:var(--font-display); font-size:2.3rem; margin:0 0 1rem; font-weight:700}
+.story-text p{color:var(--ink-soft); margin:0 0 1.1rem}
+.story-text ul{list-style:none; padding:0; margin:1.4rem 0 0; display:grid; gap:.7rem}
+.story-text li{display:flex; gap:.7rem; align-items:flex-start; font-weight:600; font-size:.95rem}
+.story-text li::before{content:"✺"; color:var(--honey); flex-shrink:0; margin-top:.1rem}
+@media (max-width:880px){.story{grid-template-columns:1fr; gap:4rem 0}
+  .story-media{margin-bottom:1rem}
+}
+
+/* ===== Reviews ===== */
+.reviews{background:var(--cream-2)}
+.review-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem}
+.review-card{
+  background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:1.6rem;
+}
+.stars{color:var(--honey); font-size:1.05rem; margin-bottom:.7rem; letter-spacing:.12em}
+.review-card p{font-style:italic; color:var(--ink); margin:0 0 1rem}
+.review-by{font-weight:700; font-size:.88rem; color:var(--ink-soft)}
+@media (max-width:880px){.review-grid{grid-template-columns:1fr}}
+
+/* ===== Visit / map ===== */
+.visit{display:grid; grid-template-columns:1.1fr 1fr; gap:2.5rem; align-items:stretch}
+.visit-card{
+  background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:2.2rem;
+}
+.visit-card h2{font-family:var(--font-display); font-size:2rem; margin:0 0 .3rem}
+.visit-card .sub{color:var(--ink-soft); margin:0 0 1.6rem}
+.info-row{display:flex; gap:1rem; padding:1rem 0; border-top:1px solid var(--line)}
+.info-row:first-of-type{border-top:none}
+.info-icon{
+  width:42px; height:42px; border-radius:50%; background:var(--cream-2);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1.1rem;
+}
+.info-row h4{margin:0 0 .2rem; font-size:.95rem}
+.info-row p, .info-row a{margin:0; color:var(--ink-soft); font-size:.92rem}
+table.hours{width:100%; border-collapse:collapse; font-size:.92rem; margin-top:.3rem}
+table.hours td{padding:.15rem 0; color:var(--ink-soft)}
+table.hours td:last-child{text-align:right; font-weight:600; color:var(--ink)}
+table.hours tr.today td{color:var(--terracotta-dark); font-weight:700}
+.map-frame{border-radius:20px; overflow:hidden; border:1px solid var(--line); min-height:340px}
+.map-frame iframe{width:100%; height:100%; min-height:340px; border:0; display:block}
+@media (max-width:920px){.visit{grid-template-columns:1fr}}
+
+/* ===== CTA banner ===== */
+.cta-banner{
+  background:linear-gradient(120deg, var(--terracotta), var(--terracotta-dark));
+  color:#fff; border-radius:24px; padding:3rem 2.5rem;
+  display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;
+}
+.cta-banner h2{font-family:var(--font-display); font-size:1.9rem; margin:0 0 .4rem; font-weight:700}
+.cta-banner p{margin:0; color:#FBE3C5}
+.cta-banner .btn-ghost{border-color:rgba(255,255,255,.6); color:#fff}
+.cta-banner .btn-ghost:hover{background:rgba(255,255,255,.15)}
+
+/* ===== Footer ===== */
+footer{padding:3rem 0 2rem; color:var(--ink-soft); font-size:.88rem}
+footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; border-top:1px solid var(--line); padding-top:1.6rem}
+footer .logo small{color:var(--ink-soft)}
+
+@media (max-width:760px){
+  .hero h1{font-size:2.6rem}
+  .hero-lead{font-size:1.02rem}
+  section{padding:3.5rem 0}
+  .section-head h2{font-size:1.9rem}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#inicio">
+      <span class="logo-mark">FB</span>
+      <span>Forn Sant Bartomeu<small>Panadería &amp; Pastelería Artesana</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#especialidades">Especialidades</a>
+      <a href="#historia">Nuestra historia</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#visitanos">Horario &amp; ubicación</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">&#9776;</button>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-media"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Son Rapinya · Palma de Mallorca</div>
+      <h1>Pan y dulce<br>de <em>toda la vida</em></h1>
+      <p class="hero-lead">Cada mañana horneamos ensaimadas, cocas y pan artesano como se ha hecho siempre en el barrio &mdash; con el mismo cariño, en el mismo horno de leña de toda la vida.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#visitanos">Cómo llegar</a>
+        <a class="btn btn-ghost" href="#especialidades">Ver especialidades</a>
+      </div>
+    </div>
+  </div>
+  <div class="scallop"></div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="item"><div class="num">4,6 / 5</div><div class="label">valoración media de clientes</div></div>
+    <div class="item"><div class="num">Desde 07:00</div><div class="label">recién horneado cada mañana</div></div>
+    <div class="item"><div class="num">100% artesano</div><div class="label">ensaimadas y cocas de Mallorca</div></div>
+    <div class="item"><div class="num">+30 años</div><div class="label">de horno en el barrio</div></div>
+  </div>
+</div>
+
+<section id="especialidades">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Lo más pedido</span>
+      <h2>Nuestras especialidades</h2>
+      <p>Obrador propio, ingredientes de siempre y las recetas que han hecho de este forn una parada obligada en Son Rapinya.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div class="spec-img" style="background-image:url('https://images.unsplash.com/photo-1612203985729-70726954388c?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="spec-body">
+          <h3>Ensaimada de Mallorca</h3>
+          <p>La auténtica, esponjosa y hojaldrada, lisa o rellena. La que nos ha hecho conocidos en todo el barrio.</p>
+        </div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-img" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="spec-body">
+          <h3>Cremadillos</h3>
+          <p>Hojaldre crujiente y crema pastelera casera. Uno de los favoritos según nuestros clientes.</p>
+        </div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-img" style="background-image:url('https://images.unsplash.com/photo-1622150162437-77535f5ce4c8?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="spec-body">
+          <h3>Cocas dulces y saladas</h3>
+          <p>De patata, de albaricoque, de verdura&hellip; las cocas tradicionales mallorquinas, horneadas a diario.</p>
+        </div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-img" style="background-image:url('https://images.unsplash.com/photo-1549931319-a545dcf3bc7c?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="spec-body">
+          <h3>Pan moreno de horno</h3>
+          <p>Pan artesano de toda la vida, con corteza crujiente y miga densa. El acompañante perfecto de cada comida.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="historia" style="background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="story">
+      <div class="story-media">
+        <img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?auto=format&fit=crop&w=900&q=80" alt="Interior del horno de Forn Sant Bartomeu">
+        <div class="story-badge"><span class="n">30+</span><span class="t">años de oficio</span></div>
+      </div>
+      <div class="story-text">
+        <span class="tag">Nuestra historia</span>
+        <h2>Un forn de barrio, hecho a mano cada día</h2>
+        <p>En Forn Sant Bartomeu seguimos haciendo las cosas como siempre: masas fermentadas con calma, horneados a primera hora y recetas que se han ido pasando entre generaciones de panaderos del barrio de Son Rapinya.</p>
+        <p>Frente a la iglesia de Son Rapinya, somos ese sitio de confianza donde la gente del barrio entra a por el pan de cada día&hellip; y sale también con una ensaimada bajo el brazo.</p>
+        <ul>
+          <li>Horneado artesanal cada mañana, sin prisas</li>
+          <li>Recetas tradicionales mallorquinas</li>
+          <li>Atención cercana, de las de toda la vida</li>
+          <li>Ingredientes seleccionados, sin atajos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="opiniones" class="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Lo que dicen de nosotros</span>
+      <h2>Opiniones de nuestros clientes</h2>
+      <p>Reseñas reales de clientes que han pasado por el forn.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>&ldquo;Los mejores cremadillos y ensaimadas de Palma. Atención muy amable y simpática.&rdquo;</p>
+        <div class="review-by">Cliente de Google</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>&ldquo;Si queréis saber a qué sabe una auténtica ensaimada, parad en este forn. La coca de patata y la de albaricoque están muy buenas.&rdquo;</p>
+        <div class="review-by">Cliente de Google</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>&ldquo;Ambiente acogedor, sencillo y agradable. Las estanterías están llenas de panes recién horneados. El pan moreno está muy bueno.&rdquo;</p>
+        <div class="review-by">Cliente de Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visitanos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Te esperamos</span>
+      <h2>Horario y ubicación</h2>
+      <p>Frente a la iglesia de Son Rapinya, en el corazón del barrio.</p>
+    </div>
+    <div class="visit">
+      <div class="visit-card">
+        <h2>Forn Sant Bartomeu</h2>
+        <p class="sub">Camí de Son Rapinya, 47 · Frente a la iglesia</p>
+
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <h4>Dirección</h4>
+            <p>Camí de Son Rapinya, 47<br>07013 Palma de Mallorca, Illes Balears</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📞</div>
+          <div>
+            <h4>Teléfono</h4>
+            <p><a href="tel:+34971793127">971 79 31 27</a></p>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🕒</div>
+          <div>
+            <h4>Horario</h4>
+            <table class="hours">
+              <tr><td>Lunes</td><td>07:00 – 14:00</td></tr>
+              <tr><td>Martes</td><td>07:00 – 14:00</td></tr>
+              <tr><td>Miércoles</td><td>Cerrado</td></tr>
+              <tr><td>Jueves</td><td>07:00 – 14:00</td></tr>
+              <tr><td>Viernes</td><td>07:00 – 14:00</td></tr>
+              <tr><td>Sábado</td><td>07:00 – 14:00</td></tr>
+              <tr><td>Domingo</td><td>07:00 – 14:00</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📷</div>
+          <div>
+            <h4>Síguenos</h4>
+            <p><a href="https://www.instagram.com/fornsantbartomeu/" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.facebook.com/FornSantBartomeu/" target="_blank" rel="noopener">Facebook</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=Cam%C3%AD+de+Son+Rapinya,+47,+07013+Palma+de+Mallorca&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-banner">
+      <div>
+        <h2>¿Listo para tu ensaimada de cada día?</h2>
+        <p>Abrimos desde las 7 de la mañana, los siete días &mdash; excepto miércoles.</p>
+      </div>
+      <a class="btn btn-ghost" href="tel:+34971793127">Llamar ahora · 971 79 31 27</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#inicio">
+      <span class="logo-mark">FB</span>
+      <span>Forn Sant Bartomeu<small>Camí de Son Rapinya, 47 · Palma</small></span>
+    </a>
+    <span>&copy; 2026 Forn Sant Bartomeu &middot; Panadería y pastelería artesana</span>
+  </div>
+</footer>
+
+<script>
+  var t = document.getElementById('menuToggle');
+  var m = document.getElementById('menu');
+  t.addEventListener('click', function(){ m.classList.toggle('open'); });
+  document.querySelectorAll('#menu a').forEach(function(a){
+    a.addEventListener('click', function(){ m.classList.remove('open'); });
+  });
+</script>
+</body>
+</html>
